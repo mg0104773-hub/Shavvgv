@@ -1,0 +1,335 @@
+local Character, Humanoid, SeatPart, Heartbeat, Connection, Humanoid_2, HumanoidRootPart, SeatPart_2, CFrame, Model, Vector3_New, CFrame_New, Connection_2, Connection_3, Humanoid_3, SeatPart_3, Humanoid_4, HumanoidRootPart_2, SeatPart_4, CFrame_2, Model_2, SeatPart_5, Not_SeatPart_6;
+local fenv = getfenv();
+if not pcall(function(p1, a, b, c)
+
+end) then
+else 
+
+end;
+game:GetService("TweenService");
+local RunService = game:GetService("RunService");
+local LocalPlayer = game:GetService("Players").LocalPlayer;
+local MoneyFarmGui = Instance.new"ScreenGui";
+MoneyFarmGui.Name = "MoneyFarmGui";
+MoneyFarmGui.ResetOnSpawn = false;
+MoneyFarmGui.Parent = LocalPlayer:WaitForChild("PlayerGui");
+local WarningFrame = Instance.new"Frame";
+WarningFrame.Name = "WarningFrame";
+local UDim2_New = UDim2.new;
+WarningFrame.Size = UDim2_New(0, 260, 0, 120);
+WarningFrame.Position = UDim2_New(0.5, -130, 0.4, -60);
+local FromRGB = Color3.fromRGB;
+WarningFrame.BackgroundColor3 = FromRGB(30, 30, 30);
+WarningFrame.BorderSizePixel = 0;
+WarningFrame.Active = true;
+WarningFrame.Draggable = true;
+WarningFrame.Parent = MoneyFarmGui;
+local UICorner = Instance.new"UICorner";
+local UDim_New = UDim.new;
+UICorner.CornerRadius = UDim_New(0, 8);
+UICorner.Parent = WarningFrame;
+local UIStroke = Instance.new"UIStroke";
+UIStroke.Color = FromRGB(231, 76, 60);
+UIStroke.Thickness = 1.5;
+UIStroke.Parent = WarningFrame;
+local WarnTitle = Instance.new"TextLabel";
+WarnTitle.Name = "WarnTitle";
+WarnTitle.Size = UDim2_New(1, 0, 0, 30);
+WarnTitle.BackgroundTransparency = 1;
+WarnTitle.Font = Enum.Font.GothamBold;
+WarnTitle.Text = "WARNING";
+WarnTitle.TextColor3 = FromRGB(231, 76, 60);
+WarnTitle.TextSize = 14;
+WarnTitle.Parent = WarningFrame;
+local WarnText = Instance.new"TextLabel";
+WarnText.Name = "WarnText";
+WarnText.Size = UDim2_New(1, -20, 0, 40);
+WarnText.Position = UDim2_New(0, 10, 0, 30);
+WarnText.BackgroundTransparency = 1;
+WarnText.Font = Enum.Font.Gotham;
+WarnText.Text = "The script must be executed while sitting on a vehicle / motorcycle!";
+WarnText.TextColor3 = FromRGB(200, 200, 200);
+WarnText.TextSize = 12;
+WarnText.TextWrapped = true;
+WarnText.Parent = WarningFrame;
+local NextButton = Instance.new"TextButton";
+NextButton.Name = "NextButton";
+NextButton.Size = UDim2_New(0, 100, 0, 30);
+NextButton.Position = UDim2_New(0.5, -50, 1, -40);
+NextButton.BackgroundColor3 = FromRGB(231, 76, 60);
+NextButton.BorderSizePixel = 0;
+NextButton.Font = Enum.Font.GothamBold;
+NextButton.Text = "Next";
+NextButton.TextColor3 = FromRGB(255, 255, 255);
+NextButton.TextSize = 13;
+NextButton.Parent = WarningFrame;
+local UICorner_2 = Instance.new"UICorner";
+UICorner_2.CornerRadius = UDim_New(0, 6);
+UICorner_2.Parent = NextButton;
+local MainFrame = Instance.new"Frame";
+MainFrame.Name = "MainFrame";
+MainFrame.Size = UDim2_New(0, 220, 0, 90);
+MainFrame.Position = UDim2_New(0.5, -110, 0.4, -45);
+MainFrame.BackgroundColor3 = FromRGB(30, 30, 30);
+MainFrame.BorderSizePixel = 0;
+MainFrame.Active = true;
+MainFrame.Draggable = true;
+MainFrame.Visible = false;
+MainFrame.Parent = MoneyFarmGui;
+local UICorner_3 = Instance.new"UICorner";
+UICorner_3.CornerRadius = UDim_New(0, 8);
+UICorner_3.Parent = MainFrame;
+local UIStroke_2 = Instance.new"UIStroke";
+UIStroke_2.Color = FromRGB(50, 50, 50);
+UIStroke_2.Thickness = 1.5;
+UIStroke_2.Parent = MainFrame;
+local Title = Instance.new"TextLabel";
+Title.Name = "Title";
+Title.Size = UDim2_New(1, 0, 0, 35);
+Title.BackgroundTransparency = 1;
+Title.Font = Enum.Font.GothamBold;
+Title.Text = "MONEY FARM SYSTEM";
+Title.TextColor3 = FromRGB(255, 255, 255);
+Title.TextSize = 14;
+Title.Parent = MainFrame;
+local StartButton = Instance.new"TextButton";
+StartButton.Name = "StartButton";
+StartButton.Size = UDim2_New(0, 180, 0, 35);
+StartButton.Position = UDim2_New(0.5, -90, 0, 40);
+StartButton.BackgroundColor3 = FromRGB(46, 204, 113);
+StartButton.BorderSizePixel = 0;
+StartButton.Font = Enum.Font.GothamBold;
+StartButton.Text = "START FARM";
+StartButton.TextColor3 = FromRGB(255, 255, 255);
+StartButton.TextSize = 13;
+StartButton.Parent = MainFrame;
+local UICorner_4 = Instance.new"UICorner";
+UICorner_4.CornerRadius = UDim_New(0, 6);
+UICorner_4.Parent = StartButton;
+LocalPlayer.CharacterAdded:Connect(function(character, p2_2, p3_2, p4_2, p5_2, a_2, b_2, c_2)
+    task.wait(0.5);
+end);
+NextButton.MouseButton1Click:Connect(function(a_3, b_3, c_3)
+    WarningFrame:Destroy();
+    MainFrame.Visible = true;
+end);
+StartButton.MouseButton1Click:Connect(function(p1_4, p2_4, p3_4, p4_4, a_4, b_4, c_4)
+    Character = LocalPlayer.Character;
+    if Character then 
+        Humanoid = Character:FindFirstChildOfClass("Humanoid");
+    end;
+    if Humanoid then 
+        SeatPart = Humanoid.SeatPart;
+        if SeatPart then 
+            Heartbeat = RunService.Heartbeat;
+            Connection = Heartbeat:Connect(function(deltaTime, p2_5, p3_5, a_5, b_5, c_5)
+                if Character then 
+                    Humanoid_2 = Character:FindFirstChildOfClass("Humanoid");
+                end;
+                HumanoidRootPart = Character:FindFirstChild("HumanoidRootPart");
+                if not Humanoid_2 then
+                else 
+
+                end;
+                if HumanoidRootPart then 
+                    SeatPart_2 = Humanoid_2.SeatPart;
+                    if SeatPart_2 then 
+
+                    end;
+                end;
+                if not SeatPart_2 then
+                else 
+
+                end;
+                if SeatPart_2:IsDescendantOf(workspace) then 
+
+                end;
+                if SeatPart_2:IsA("VehicleSeat") then 
+                    SeatPart_2.Disabled = true;
+                end;
+                CFrame = SeatPart_2.CFrame;
+                Model = SeatPart_2:FindFirstAncestorOfClass("Model");
+                Vector3_New = Vector3.new;
+                CFrame_New = CFrame.new;
+                if not Model then
+                else 
+
+                end;
+                for for_key_0, for_val_0 in pairs(Model:GetDescendants()) do
+                    if for_key_0 then 
+
+                    end;
+                    if not for_val_0:IsA("BasePart") then
+                    else 
+                        for_val_0.CanCollide = false;
+                    end;
+                    for_val_0.AssemblyLinearVelocity = Vector3_New(0, 0, 0);
+                    for_val_0.AssemblyAngularVelocity = Vector3_New(0, 0, 0);
+                end;
+                Model:PivotTo(
+                    CFrame_New(
+                    (
+                        CFrame.Position + Vector3_New(0, 500, 0)
+                    ) + (
+                        CFrame.LookVector * (
+                            math.sin(
+                                os.clock() * 1e13
+                            ) * 1e6
+                        )
+                    )
+                ) * (
+                    CFrame - CFrame.Position
+                )
+                );
+                for for_key_1, for_val_1 in pairs(Character:GetChildren()) do
+                    if not for_key_1 then
+                    else 
+
+                    end;
+                    if not for_val_1:IsA("BasePart") then
+                    else 
+                        for_val_1.CanCollide = false;
+                    end;
+                    for_val_1.AssemblyLinearVelocity = Vector3_New(0, 0, 0);
+                    for_val_1.AssemblyAngularVelocity = Vector3_New(0, 0, 0);
+                end;
+                HumanoidRootPart.CFrame = SeatPart_2.CFrame * CFrame_New(0, Humanoid_2.HipHeight, 0);
+            end);
+        end;
+    end;
+    task.spawn(function()
+        StartButton.Text = "Resetting... (15s)";
+        task.wait(1);
+        StartButton.Text = "Resetting... (14s)";
+        task.wait(1);
+        StartButton.Text = "Resetting... (13s)";
+        task.wait(1);
+        StartButton.Text = "Resetting... (12s)";
+        task.wait(1);
+        StartButton.Text = "Resetting... (11s)";
+        task.wait(1);
+        StartButton.Text = "Resetting... (10s)";
+        task.wait(1);
+        StartButton.Text = "Resetting... (9s)";
+        task.wait(1);
+        StartButton.Text = "Resetting... (8s)";
+        task.wait(1);
+        StartButton.Text = "Resetting... (7s)";
+        task.wait(1);
+        StartButton.Text = "Resetting... (6s)";
+        task.wait(1);
+        StartButton.Text = "Resetting... (5s)";
+        task.wait(1);
+        StartButton.Text = "Resetting... (4s)";
+        task.wait(1);
+        StartButton.Text = "Resetting... (3s)";
+        task.wait(1);
+        StartButton.Text = "Resetting... (2s)";
+        task.wait(1);
+        StartButton.Text = "Resetting... (1s)";
+        task.wait(1);
+        if r127 then 
+            r127:Disconnect();
+        end;
+        if r131 then 
+            r131:Disconnect();
+        end;
+        if not Connection then
+        else 
+            if Character then 
+                Humanoid_3 = Character:FindFirstChildOfClass("Humanoid");
+            end;
+        end;
+        if not Humanoid_3 then
+        else 
+            Humanoid_3.Health = 0;
+        end;
+    end);
+    r127 = Humanoid:GetPropertyChangedSignal("SeatPart"):Connect(function(p1_7, p2_7, p3_7, p4_7, p5_7, a_7, b_7, c_7)
+        if SeatPart then 
+            Heartbeat:Connect(            do
+                if Character then 
+                    Humanoid_4 = Character:FindFirstChildOfClass("Humanoid");
+                end;
+                HumanoidRootPart_2 = Character:FindFirstChild("HumanoidRootPart");
+                if not Humanoid_4 then
+                else 
+
+                end;
+                if HumanoidRootPart_2 then 
+                    SeatPart_4 = Humanoid_4.SeatPart;
+                    if SeatPart_4 then 
+
+                    end;
+                end;
+                if not SeatPart_4 then
+                else 
+
+                end;
+                if SeatPart_4:IsDescendantOf(workspace) then 
+
+                end;
+                if SeatPart_4:IsA("VehicleSeat") then 
+                    SeatPart_4.Disabled = true;
+                end;
+                CFrame_2 = SeatPart_4.CFrame;
+                Model_2 = SeatPart_4:FindFirstAncestorOfClass("Model");
+                if not Model_2 then
+                else 
+
+                end;
+                for for_key_2, for_val_2 in pairs(Model_2:GetDescendants()) do
+                    if for_key_2 then 
+
+                    end;
+                    if not for_val_2:IsA("BasePart") then
+                    else 
+                        for_val_2.CanCollide = false;
+                    end;
+                    for_val_2.AssemblyLinearVelocity = Vector3_New(0, 0, 0);
+                    for_val_2.AssemblyAngularVelocity = Vector3_New(0, 0, 0);
+                end;
+                Model_2:PivotTo(
+                    CFrame_New(
+                    (
+                        CFrame_2.Position + Vector3_New(0, 500, 0)
+                    ) + (
+                        CFrame_2.LookVector * (
+                            math.sin(
+                                os.clock() * 1e13
+                            ) * 1e6
+                        )
+                    )
+                ) * (
+                    CFrame_2 - CFrame_2.Position
+                )
+                );
+                for for_key_3, for_val_3 in pairs(Character:GetChildren()) do
+                    if not for_key_3 then
+                    else 
+
+                    end;
+                    if not for_val_3:IsA("BasePart") then
+                    else 
+                        for_val_3.CanCollide = false;
+                    end;
+                    for_val_3.AssemblyLinearVelocity = Vector3_New(0, 0, 0);
+                    for_val_3.AssemblyAngularVelocity = Vector3_New(0, 0, 0);
+                end;
+                HumanoidRootPart_2.CFrame = SeatPart_4.CFrame * CFrame_New(0, Humanoid_4.HipHeight, 0);
+            end);
+        end;
+        task.spawn(function()
+
+        end);
+    end);
+    r131 = Humanoid:GetPropertyChangedSignal("SeatPart"):Connect(function(p1_9, p2_9, p3_9, p4_9, p5_9, a_9, b_9, c_9)
+        Not_SeatPart_6 = not SeatPart;
+        if not Not_SeatPart_6 then 
+
+        end;
+        if not Not_SeatPart_6 then 
+
+        end;
+    end);
+end);
